@@ -6,10 +6,7 @@
       <input id="name" v-model="form.name" type="text" required class="form-input" placeholder="e.g., Vacation, Home, etc." />
     </div>
     
-    <div class="form-group">
-      <label for="description">Description</label>
-      <textarea id="description" v-model="form.description" class="form-input textarea" placeholder="Optional group description"></textarea>
-    </div>
+   
     
     <button type="submit" class="submit-button">Create Group</button>
   </form>
