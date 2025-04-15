@@ -8,6 +8,7 @@ export default {
 }
 </script>
 
+<!-- src/App.vue -->
 <style>
-/* Global styles can go here */
+@import '@/assets/css/app.css';
 </style>

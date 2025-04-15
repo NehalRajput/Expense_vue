@@ -1,31 +1,37 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form @submit.prevent="handleSubmit" class="form-container">
+    <h2 class="form-title">Add New Expense</h2>
     <div class="form-group">
       <label for="title">Title</label>
-      <input id="title" v-model="form.title" type="text" required />
+      <input id="title" v-model="form.title" type="text" required class="form-input" placeholder="Dinner, Groceries, etc." />
     </div>
     
     <div class="form-group">
       <label for="amount">Amount</label>
-      <input id="amount" v-model.number="form.amount" type="number" step="0.01" required />
+      <div class="input-with-symbol">
+        <span class="currency-symbol">$</span>
+        <input id="amount" v-model.number="form.amount" type="number" step="0.01" required class="form-input" placeholder="0.00" />
+      </div>
     </div>
     
-    <div class="form-group">
-      <label for="date">Date</label>
-      <input id="date" v-model="form.date" type="date" required />
+    <div class="form-row">
+      <div class="form-group half-width">
+        <label for="date">Date</label>
+        <input id="date" v-model="form.date" type="date" required class="form-input" />
+      </div>
+      
+      <div class="form-group half-width">
+        <label for="group">Group</label>
+        <select id="group" v-model="form.groupId" class="form-input">
+          <option value="">No Group</option>
+          <option v-for="group in groups" :key="group.id" :value="group.id">
+            {{ group.name }}
+          </option>
+        </select>
+      </div>
     </div>
     
-    <div class="form-group">
-      <label for="group">Group</label>
-      <select id="group" v-model="form.groupId">
-        <option value="">No Group</option>
-        <option v-for="group in groups" :key="group.id" :value="group.id">
-          {{ group.name }}
-        </option>
-      </select>
-    </div>
-    
-    <button type="submit">Add Expense</button>
+    <button type="submit" class="submit-button">Add Expense</button>
   </form>
 </template>
 
