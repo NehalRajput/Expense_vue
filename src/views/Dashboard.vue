@@ -23,14 +23,7 @@
           <span class="stat-subtitle">{{ currentMonth }}</span>
         </div>
         
-        <div class="stat-card group-card">
         
-            <h3>Number of Groups</h3>
-          <p>{{ groups.length }}</p>
-          <span class="stat-subtitle">Total Groups</span>
- 
-         
-        </div>
       </div>
 
       <br>

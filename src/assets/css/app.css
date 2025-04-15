@@ -7,7 +7,7 @@ body {
     max-width: 500px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #111827; /* blackish background */
+    background-color: black; /* blackish background */
     color: #ffffff; /* white text */
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -41,7 +41,7 @@ body {
     border: 1px solid #4b5563;
     border-radius: 8px;
     font-size: 1rem;
-    background-color: #1f2937; /* dark input */
+    background-color: black; /* dark input */
     color: #ffffff;
   }
   
@@ -86,7 +86,7 @@ body {
   
   /* ===== Group Item ===== */
   .group-item {
-    background-color: #1f2937;
+    background-color:black;
     color: #ffffff;
     border-radius: 12px;
     padding: 1.5rem;
@@ -138,7 +138,7 @@ body {
     margin: auto;
     padding: 1rem;
     border-radius: 12px;
-    background-color: #111827; /* black background */
+    background-color: black; /* black background */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
@@ -148,7 +148,7 @@ body {
     align-items: center;
     padding: 1rem 1.25rem;
     margin-bottom: 12px;
-    background-color: #1f2937; /* dark card */
+    background-color: black; /* dark card */
     color: #ffffff;
     border-left: 4px solid #3b82f6;
     border-radius: 10px;
@@ -157,7 +157,7 @@ body {
   
   .expense-item:hover {
     transform: translateY(-2px);
-    background-color: #374151; /* darker on hover */
+    background-color: black; /* darker on hover */
   }
   
   .expense-name {
