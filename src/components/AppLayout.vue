@@ -24,14 +24,16 @@
 </script>
 
 <style scoped>
+
 .app-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+; /* Black background for the entire layout */
 }
 
 .app-header {
-  background-color: #42b983;
+  background-color: #111827; /* Dark blackish background for header */
   color: white;
   padding: 1rem;
   display: flex;
@@ -70,11 +72,14 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  color: white; /* White text for better contrast */
 }
 
 .app-footer {
-  background-color: #f5f5f5;
+  background-color: #111827; /* Dark blackish background for footer */
+  color: white;
   padding: 1rem;
   text-align: center;
 }
+
 </style>

@@ -106,7 +106,7 @@ const handleDeleteGroup = (id) => {
   margin-bottom: 0;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #42b983;
+  color: #000000; /* changed to black */
 }
 
 .recent-section, .groups-section {
@@ -133,11 +133,12 @@ const handleDeleteGroup = (id) => {
 }
 
 .empty-state a {
-  color: #42b983;
+  color: #000000; /* changed to black */
   text-decoration: none;
 }
 
 .empty-state a:hover {
   text-decoration: underline;
 }
+
 </style>

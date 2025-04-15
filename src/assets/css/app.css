@@ -1,408 +1,168 @@
-/* Form Styles */
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
+body {
+    background-color: #f9fafb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #111827;
+  }
+  .form-container {
+    max-width: 500px;
+    margin: 2rem auto;
     padding: 2rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #111827; /* blackish background */
+    color: #ffffff; /* white text */
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   .form-title {
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
     font-size: 1.5rem;
+    font-weight: 700;
     text-align: center;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
   }
   
   .form-group {
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-row {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .half-width {
-    flex: 1;
+    margin-bottom: 1.25rem;
   }
   
   label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: #2c3e50;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e5e7eb;
   }
   
-  .form-input {
+  .form-input,
+  .textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #4b5563;
     border-radius: 8px;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    background-color: #f9f9f9;
+    background-color: #1f2937; /* dark input */
+    color: #ffffff;
   }
   
-  .form-input:focus {
-    outline: none;
-    border-color: #42b983;
-    box-shadow: 0 0 0 2px rgba(66, 185, 131, 0.2);
-    background-color: white;
+  .form-input::placeholder,
+  .textarea::placeholder {
+    color: #9ca3af;
   }
-  
-  .input-with-symbol {
-    position: relative;
-  }
-  
-  .currency-symbol {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-    font-weight: bold;
-  }
-  
-  .input-with-symbol input {
-    padding-left: 30px;
-  }
-  
-  .textarea {
-    min-height: 100px;
-    resize: vertical;
-  }
-  
-  select.form-input {
-    appearance: none;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-  }
-  
   .submit-button {
     width: 100%;
+    background-color: #ffffff;  /* white button */
+    color: #111827;             /* black text */
     padding: 0.75rem;
-    background-color: #42b983;
-    color: white;
     border: none;
     border-radius: 8px;
+    font-weight: 600;
     font-size: 1rem;
-    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
   
   .submit-button:hover {
-    background-color: #369f6b;
-    transform: translateY(-1px);
+    background-color: #e5e7eb;  /* light gray on hover */
+    color: #000000;
   }
   
-  .submit-button:active {
-    transform: translateY(0);
-  }
   
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    .form-row {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    
-    .form-container {
-      padding: 1.5rem;
-    }
-  }
-
-  /* Validation styles */
-.invalid-input {
-    border-color: #ff6b6b !important;
-  }
   
-  .error-message {
-    color: #ff6b6b;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-  }
-
-  .submit-button.loading {
-    position: relative;
-    pointer-events: none;
-  }
-  
-  .submit-button.loading::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-  
-  @keyframes spin {
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-  }
-
-
-  /* Expense List Styles */
-.expense-list-container {
-    margin-top: 2rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-  }
-  
-  .expense-list-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid #f0f0f0;
+  /* ===== Group List ===== */
+  .group-list {
+    max-width: 800px;
+    margin: 2rem auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .expense-list-title {
-    margin: 0;
-    font-size: 1.25rem;
-    color: #2c3e50;
-  }
-  
-  .expense-list-total {
-    font-weight: 600;
-    color: #42b983;
-  }
-  
-  .expense-list-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .expense-item {
-    padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid #f5f5f5;
-    transition: all 0.2s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .expense-item:last-child {
-    border-bottom: none;
-  }
-  
-  .expense-item:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .expense-info {
-    flex: 1;
-  }
-  
-  .expense-title {
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-    color: #2c3e50;
-  }
-  
-  .expense-meta {
-    display: flex;
+    flex-direction: column;
     gap: 1rem;
-    font-size: 0.875rem;
-    color: #666;
-  }
-  
-  .expense-amount {
-    font-weight: 600;
-    color: #e74c3c;
-    min-width: 80px;
-    text-align: right;
-  }
-  
-  .expense-actions {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .delete-btn {
-    background: none;
-    border: none;
-    color: #e74c3c;
-    cursor: pointer;
-    padding: 0.25rem;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-  }
-  
-  .delete-btn:hover {
-    background-color: rgba(231, 76, 60, 0.1);
   }
   
   .empty-state {
-    padding: 2rem;
     text-align: center;
-    color: #7f8c8d;
+    font-size: 1.1rem;
+    color: #6b7280;
   }
   
-  .empty-state-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #bdc3c7;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .expense-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-    
-    .expense-amount {
-      text-align: left;
-    }
-  }
-
-
-  /* Group List Styles */
-.group-list-container {
-    margin-top: 2rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-  }
-  
-  .group-list-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .group-list-title {
-    margin: 0;
-    font-size: 1.25rem;
-    color: #2c3e50;
-  }
-  
-  .group-list-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 1.5rem;
-  }
-  
+  /* ===== Group Item ===== */
   .group-item {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    background-color: #1f2937;
+    color: #ffffff;
+    border-radius: 12px;
     padding: 1.5rem;
-    transition: all 0.2s ease;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
   }
   
   .group-item:hover {
-    border-color: #42b983;
-    box-shadow: 0 2px 8px rgba(66, 185, 131, 0.1);
+    background-color: #374151;
+    transform: translateY(-2px);
   }
   
-  .group-name {
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
+  .group-info h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
   }
   
-  .group-description {
-    color: #7f8c8d;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
+  .group-info p {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    margin: 0.25rem 0;
   }
   
-  .group-stats {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.875rem;
-  }
-  
-  .group-expense-count {
-    color: #42b983;
-    font-weight: 500;
-  }
-  
-  .group-expense-total {
-    color: #e74c3c;
-    font-weight: 500;
-  }
-  
-  .group-actions {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .group-action-btn {
-    background: none;
+  .group-item button {
+    background-color: #ef4444;
     border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
     cursor: pointer;
-    padding: 0.25rem;
-    border-radius: 4px;
-    color: #95a5a6;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease;
   }
   
-  .group-action-btn:hover {
-    color: #2c3e50;
-    background-color: rgba(0, 0, 0, 0.05);
+  .group-item button:hover {
+    background-color: #dc2626;
   }
   
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .group-list-items {
-      grid-template-columns: 1fr;
-    }
-  }
 
-
-  .expense-list {
+/* ===== Expense List Updated Style ===== */
+.expense-list {
     width: 100%;
     max-width: 700px;
     margin: auto;
     padding: 1rem;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    background-color: #111827; /* black background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
   
   .expense-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    background: #ffffff;
+    padding: 1rem 1.25rem;
+    margin-bottom: 12px;
+    background-color: #1f2937; /* dark card */
+    color: #ffffff;
     border-left: 4px solid #3b82f6;
-    border-radius: 8px;
-    transition: transform 0.2s;
+    border-radius: 10px;
+    transition: transform 0.2s ease, background-color 0.3s ease;
   }
   
   .expense-item:hover {
-    transform: scale(1.01);
-    background-color: #f0f4ff;
+    transform: translateY(-2px);
+    background-color: #374151; /* darker on hover */
   }
   
   .expense-name {
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
   }
   
   .expense-amount {
@@ -412,6 +172,6 @@
   
   .expense-date {
     font-size: 0.9rem;
-    color: #666;
+    color: #d1d5db;
   }
   
