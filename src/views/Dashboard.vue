@@ -293,9 +293,7 @@ const handleDeleteGroup = (id) => {
   border-bottom: none;
 }
 
-.data-table tr:hover {
-  background-color: #f9f9f9;
-}
+
 
 .amount-cell {
   font-weight: 600;

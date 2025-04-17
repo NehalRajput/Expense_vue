@@ -14,7 +14,7 @@
     </main>
     
     <footer class="app-footer">
-      <p>© 2023 Expense Tracker</p>
+      <p>© 2025 Expense Tracker</p>
     </footer>
   </div>
 </template>

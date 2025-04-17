@@ -1,3 +1,4 @@
+
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 
@@ -37,12 +38,19 @@ export const useExpenseStore = defineStore('expense', () => {
   function getExpensesByGroup(groupId) {
     return expenses.value.filter(expense => expense.groupId === groupId);
   }
-  
+  function updateExpense(updatedExpense) {
+    const index = expenses.value.findIndex(exp => exp.id === updatedExpense.id);
+    if (index !== -1) {
+      expenses.value[index] = updatedExpense;
+      saveToLocalStorage();
+    }
+  }
   return {
     expenses,
     totalExpenses,
     addExpense,
     deleteExpense,
+    updateExpense,
     getExpensesByGroup
   };
 });

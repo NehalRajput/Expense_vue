@@ -1,3 +1,4 @@
+
 <template>
   <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6">
     <!-- No expenses message -->
@@ -24,7 +25,13 @@
             <td class="py-4 px-4 text-gray-800">{{ formatDate(expense.date) }}</td>
             <td class="py-4 px-4 text-gray-800" v-if="expense.groupId">{{ getGroupName(expense.groupId) }}</td>
             <td class="py-4 px-4 text-center">
-             
+               <!-- Edit button -->
+               <button 
+                  @click="editExpense(expense)" 
+                  class="bg-blue-500 text-white hover:bg-blue-700 font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Edit
+                </button>
                <!-- Styled red delete button -->
                <button 
                 @click="$emit('delete', expense.id)" 
@@ -54,6 +61,9 @@ import { formatDate } from '@/utills/formatDate';
 const expenseStore = useExpenseStore();
 const groupStore = useGroupStore();
 
+
+const emit = defineEmits(['delete', 'edit']);
+
 const expenses = computed(() => expenseStore.expenses);
 const totalExpenses = computed(() => expenseStore.totalExpenses);
 
@@ -61,6 +71,9 @@ const totalExpenses = computed(() => expenseStore.totalExpenses);
 const getGroupName = (groupId) => {
   const group = groupStore.getGroupById(groupId);
   return group ? group.name : 'No Group';
+};
+const editExpense = (expense) => {
+  emit('edit', expense);
 };
 </script>
 
