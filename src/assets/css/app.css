@@ -113,21 +113,37 @@ body {
     color: #d1d5db;
     margin: 0.25rem 0;
   }
+  .btn-group {
+    display: flex;
+    gap: 0.75rem;
+  }
   
-  .group-item button {
-    background-color: #ef4444;
+  .action-button {
+    padding: 0.5rem 1rem;
     border: none;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    font-size: 0.875rem;
+    border-radius: 8px;
     font-weight: 600;
-    color: white;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
   
-  .group-item button:hover {
-    background-color: #dc2626;
+  .action-button.edit {
+    background-color: #3b82f6; /* blue */
+    color: white;
+  }
+  
+  .action-button.edit:hover {
+    background-color: #2563eb; /* darker blue */
+  }
+  
+  .action-button.delete {
+    background-color: #ef4444; /* red */
+    color: white;
+  }
+  
+  .action-button.delete:hover {
+    background-color: #dc2626; /* darker red */
   }
   
 

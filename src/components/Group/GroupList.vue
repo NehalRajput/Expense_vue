@@ -3,12 +3,13 @@
     <div v-if="groups.length === 0" class="empty-state">
       No groups yet. Create your first group!
     </div>
-    
+
     <GroupItem 
       v-for="group in groups" 
       :key="group.id" 
       :group="group" 
-      @delete="handleDelete"
+      @delete="handleDelete" 
+      @edit="handleEdit"
     />
   </div>
 </template>
@@ -24,5 +25,13 @@ const groups = computed(() => groupStore.groups);
 
 const handleDelete = (id) => {
   groupStore.deleteGroup(id);
+};
+
+const handleEdit = (id) => {
+  const group = groupStore.getGroupById(id);
+  if (group) {
+    // You can set the group in the parent component to edit it
+    emit('editGroup', group);
+  }
 };
 </script>

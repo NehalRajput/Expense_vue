@@ -1,4 +1,3 @@
-
 <template>
   <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6">
     <!-- No expenses message -->
@@ -25,18 +24,15 @@
             <td class="py-4 px-4 text-gray-800">{{ formatDate(expense.date) }}</td>
             <td class="py-4 px-4 text-gray-800" v-if="expense.groupId">{{ getGroupName(expense.groupId) }}</td>
             <td class="py-4 px-4 text-center">
-               <!-- Edit button -->
-               <button 
-                  @click="editExpense(expense)" 
-                  class="bg-blue-500 text-white hover:bg-blue-700 font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  Edit
-                </button>
-               <!-- Styled red delete button -->
-               <button 
-                @click="$emit('delete', expense.id)" 
-                class="bg-red-500 text-white hover:bg-red-700 font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              >
+              <!-- Edit button -->
+              
+
+              <button @click="editExpense(expense)" class="action-button edit">
+                Edit
+              </button>
+
+              <!-- Delete Button -->
+              <button @click="$emit('delete', expense.id)" class="action-button delete">
                 Delete
               </button>
             </td>
@@ -85,7 +81,8 @@ table {
   border-spacing: 0;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   border: 1px solid #e0e0e0;
   background-color: black;
@@ -106,12 +103,12 @@ td {
   padding: 12px;
   color: white;
   font-size: 1rem;
-  
+
 }
 
 button {
   cursor: pointer;
-  color:white;
+  color: white;
   background-color: red;
 }
 </style>
