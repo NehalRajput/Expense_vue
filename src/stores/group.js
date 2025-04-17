@@ -3,46 +3,81 @@ import { ref } from 'vue';
 
 export const useGroupStore = defineStore('group', () => {
   const groups = ref([]);
-  const GROUPS_KEY = 'vue-expense-tracker-groups';
 
-  if (localStorage.getItem(GROUPS_KEY)) {
-    groups.value = JSON.parse(localStorage.getItem(GROUPS_KEY));
+  //  Fetch groups from PHP API
+  async function fetchGroups() {
+    try {
+      const res = await fetch('http://localhost:8000/expense_api/api/get-groups.php');
+      const data = await res.json();
+      groups.value = data.groups;
+    } catch (err) {
+      console.error('Failed to fetch groups:', err);
+    }
   }
+ 
 
-  function saveToLocalStorage() {
-    localStorage.setItem(GROUPS_KEY, JSON.stringify(groups.value));
-  }
-
-  function addGroup(group) {
-    groups.value.push({
-      id: Date.now(),
-      ...group
-    });
-    saveToLocalStorage();
-  }
-
-  function deleteGroup(id) {
-    groups.value = groups.value.filter(group => group.id !== id);
-    saveToLocalStorage();
-  }
-
-  function updateGroup(id, updatedGroup) {
-    const index = groups.value.findIndex(group => group.id === id);
-    if (index !== -1) {
-      groups.value[index] = { id, ...updatedGroup };
-      saveToLocalStorage();
+  // Add group to backend
+  async function addGroup(group) {
+    try {
+      const res = await fetch('http://localhost:8000/expense_api/api/add-group.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(group)
+      });
+      const data = await res.json();
+      if (data.status === 'success') {
+        fetchGroups(); // refresh after adding
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error('Error adding group:', err);
     }
   }
 
-  function getGroupById(id) {
-    return groups.value.find(group => group.id === id);
+  //  Update group
+  async function updateGroup(id, group) {
+    try {
+      const res = await fetch('http://localhost:8000/expense_api/api/update-group.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, ...group })
+      });
+      const data = await res.json();
+      if (data.status === 'success') {
+        fetchGroups();
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error('Error updating group:', err);
+    }
+  }
+
+  //  Delete group
+  async function deleteGroup(id) {
+    try {
+      const res = await fetch('http://localhost:8000/expense_api/api/delete-group.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id })
+      });
+      const data = await res.json();
+      if (data.status === 'success') {
+        fetchGroups();
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error('Error deleting group:', err);
+    }
   }
 
   return {
     groups,
+    fetchGroups,
     addGroup,
-    deleteGroup,
     updateGroup,
-    getGroupById
+    deleteGroup
   };
 });

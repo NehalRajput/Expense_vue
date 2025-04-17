@@ -4,7 +4,7 @@ import { ref, computed } from 'vue';
 
 export const useExpenseStore = defineStore('expense', () => {
   const expenses = ref([]);
-  
+   
   // Local storage key
   const EXPENSES_KEY = 'vue-expense-tracker-expenses';
   

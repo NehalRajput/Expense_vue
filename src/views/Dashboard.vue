@@ -91,7 +91,7 @@
             </thead>
             <tbody>
               <tr v-for="group in groups" :key="group.id">
-                <td>{{ group.name }}</td>
+                <td>{{ group.group_name }}</td>
                 <td class="amount-cell">${{ getGroupTotal(group.id).toFixed(2) }}</td>
                 <td class="actions-cell">
                   <button @click="handleDeleteGroup(group.id)" class="delete-btn">
@@ -128,6 +128,8 @@ import { computed } from 'vue';
 import AppLayout from '@/components/AppLayout.vue';
 import { useExpenseStore } from '@/stores/expense';
 import { useGroupStore } from '@/stores/group';
+
+
 
 const expenseStore = useExpenseStore();
 const groupStore = useGroupStore();

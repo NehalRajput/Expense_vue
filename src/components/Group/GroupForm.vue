@@ -3,14 +3,10 @@
     <h2 class="form-title">{{ formTitle }}</h2>
     <div class="form-group">
       <label for="name">Group Name</label>
-      <input id="name" v-model="form.name" type="text" required class="form-input" placeholder="e.g., Vacation, Home, etc." />
+      <input id="name" v-model="form.group_name" type="text" required class="form-input" placeholder="e.g., Vacation, Home, etc." />
     </div>
 
-    <div class="form-group">
-      <label for="description">Description</label>
-      <input id="description" v-model="form.description" type="text" required class="form-input" placeholder="Describe the group" />
-    </div>
-
+   
     <button type="submit" class="submit-button">{{ formButtonText }}</button>
   </form>
 </template>
@@ -22,8 +18,8 @@ import { useGroupStore } from '@/stores/group';
 const groupStore = useGroupStore();
 
 const form = ref({
-  name: '',
-  description: ''
+  name: ''
+
 });
 
 const formTitle = ref('Create New Group');
@@ -54,8 +50,8 @@ const handleSubmit = () => {
   }
 
   form.value = {
-    name: '',
-    description: ''
+    name: ''
+   
   };
 };
 </script>
